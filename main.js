@@ -18,6 +18,7 @@ function parseCSV(csvString) {
     // convert keys to lowercase
     const header = splitColumns[0].map(key => key.toLowerCase())
 
+    // slice data from header row
     const data = splitColumns.slice(1, rowLength)
 
     return { header, data }
@@ -38,6 +39,7 @@ function convertToArrayOfObjects(header, data) {
         }
         objArray.push(obj)
     }
+    //store in multi dimensional array
     return objArray
 }
 
@@ -68,7 +70,7 @@ for(let i =0; i < arrayLength; i++){
    const age = parseInt(sortedArray[i].age) 
    sum+=age
 }
-console.log(`The average age is ${sum/arrayLength}`)
+console.log(`The average age is ${sum/arrayLength}\n`)
 
 
 

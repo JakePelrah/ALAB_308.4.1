@@ -91,7 +91,7 @@ function convertToCSV(objArray){
 
 // convert array back to csv
 const stringCSV = convertToCSV(sortedArray)
-
+console.log(stringCSV)
 //test stringCSV
 const { header:header2, data:data2 } = parseCSV(stringCSV)
 const arrayOfObjects2 = convertToArrayOfObjects(header2, data2)

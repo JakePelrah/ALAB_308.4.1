@@ -58,3 +58,40 @@ sortedArray.splice(1, 0, { id: "48", name: "Barry", occupation: "Runner", age: "
 sortedArray.push( { id: "7", name: "Bilbo", occupation: "None", age: "111" })
 
 console.log(sortedArray)
+
+
+// Finally, use the values of each object within the array and the array’s length property to calculate the average age of the group. 
+// This calculation should be accomplished using a loop.
+let sum = 0
+let arrayLength = sortedArray.length
+for(let i =0; i < arrayLength; i++){
+   const age = parseInt(sortedArray[i].age) 
+   sum+=age
+}
+console.log(`The average age is ${sum/arrayLength}`)
+
+
+
+//////////////////////// PART 5 //////////////////////// 
+function convertToCSV(objArray){
+    // get and join header values
+    const header = Object.keys(objArray[0]).join(',')
+    
+    // get and join row values
+    let newArray = [header]
+    for(const row of objArray){
+        const values = Object.values(row).join(',')
+        newArray.push(values)
+    }
+    // join the final array with a newline
+    return newArray.join('\n')
+}
+
+// convert array back to csv
+const stringCSV = convertToCSV(sortedArray)
+
+//test stringCSV
+const { header:header2, data:data2 } = parseCSV(stringCSV)
+const arrayOfObjects2 = convertToArrayOfObjects(header2, data2)
+const sortedArray2 = arrayOfObjects2.sort((a, b) => parseInt(a.id) - parseInt(b.id))
+console.log(sortedArray2)
